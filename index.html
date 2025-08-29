@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAC玩家联合总盟总部</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #ff6cb5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #ff6cb5, #4facfe);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .groups-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .group-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .group-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .group-name {
+            font-size: 1.2rem;
+            color: #ff6cb5;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .group-id {
+            font-size: 1.1rem;
+            color: #4facfe;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .copy-btn:hover {
+            background: linear-gradient(90deg, #00f2fe, #4facfe);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .join-btn {
+            background: linear-gradient(90deg, #ff6cb5, #ff4b92);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+        
+        .join-btn:hover {
+            background: linear-gradient(90deg, #ff4b92, #ff6cb5);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .description {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .description h2 {
+            color: #ff6cb5;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .description p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .highlight {
+            color: #4facfe;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            background: linear-gradient(90deg, #4facfe, #ff6cb5);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .groups-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TAC玩家联合总盟总部</h1>
+            <p class="subtitle">SHAER</p>
+        </header>
+        
+        <div class="content">
+            <div class="groups-container">
+                <div class="group-card">
+                    <div class="group-name">TAC玩家联合总盟总部</div>
+                    <span class="group-id">716813681</span>
+                    <button class="copy-btn" data-id="716813681">点击复制群号</button>
+                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=lqVuImDSgYdecw41FmHNEMqiaBGnaOEw0Ny96mhtBT7fB90MrMKuTHjr%2Ftr%2BUFQl&busi_data=eyJncm91cENvZGUiOiI3MTY4MTM2ODEiLCJ0b2tlbiI6ImdmaUdwTEdsWk1kc2Njbi9sbUZOQ2k5YmRQNXVrQjN1VlRVenpHYXJUVDF0cTROZHN5Zi9vKzBOcDlaLzE4SFMiLCJ1aW4iOiIxNDIzNTA4MTYzIn0%3D&data=jvL6_TCn-Aa3kGqO96Z1ArQFsMaFvMrBGP-tDA3SkvyPYyK2jwiDUIhnOPTcnX1VOJzjnwNj8VHmNSJljDFwyw&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
+                </div>
+                
+                <div class="group-card">
+                    <div class="group-name">日常活动群</div>
+                    <span class="group-id">717720329</span>
+                    <button class="copy-btn" data-id="717720329">点击复制群号</button>
+                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=7X9URZsq4qDQZRiNDq8BqmZ1il7VjJgvitjOp8LJNQ9OTwbz6WejMG%2FGgYqmv6u5&busi_data=eyJncm91cENvZGUiOiI3MTc3MjAzMjkiLCJ0b2tlbiI6IlBiaU1aRkx6TTZaUmZFQ04xNmNjT1RHVk5EdDhnNnlUVFVLbWtCQmhmOGIvOU9QY2FqM01DMUJjMjUwbGZtMUQiLCJ1aW4iOiIyMDg0NDU5NjA4In0%3D&data=59DF8ITS2ADyNbYs2gZgLrgmZhLsl_P9A302I2-L8aboDC98NukclU3En6HYkd1i3A0V4z5jT8sfD0eiUd-LXg&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
+                </div>
+                
+                <div class="group-card">
+                    <div class="group-name">模组制作群</div>
+                    <span class="group-id">982300387</span>
+                    <button class="copy-btn" data-id="982300387">点击复制群号</button>
+                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=RHjs8rvYaeu5lQWz4y83hrZaHb0L0Ngy8Kbkdf%2FRA1aPEPGsN4cfsgP%2FoIxal6VF&busi_data=eyJncm91cENvZGUiOiI5ODIzMDAzODciLCJ0b2tlbiI6IllEZnVMQXlqejd1MnVtakxidVN2SExrdU9QTjNyV3ZwbDVwWVFoQUxiOGhtaVRPZnBwOWhWRitQZHRTYnh1czIiLCJ1aW4iOiIyMDg0NDU5NjA4In0%3D&data=YS03mOTvuF6e9bSrWvMwX84HRE69iBecUA8F0z9-Lvbfw2ADx_MOBfwVvQjf3I6f2VJ-uIrapyIIfwSzmocxGw&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
+                </div>
+                
+                <div class="group-card">
+                    <div class="group-name">自由聊天室</div>
+                    <span class="group-id">797264723</span>
+                    <button class="copy-btn" data-id="797264723">点击复制群号</button>
+                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=uBYwU%2F7US5kA7I6gEpfXINrZlF1AKcK5BH4u1wWHg3Eut9gUlcdQR66WUfmVqSjz&busi_data=eyJncm91cENvZGUiOiI3OTcyNjQ3MjMiLCJ0b2tlbiI6Imp1bkJzUTJwcDlKZmExSXQ1VmxmM1lGMXMyODVuYTljSkxkbmU0NjJpaTJyTmFzeEpkMzAxeEhzd21HZVpBTmUiLCJ1aW4iOiIxNDIzNTA4MTYzIn0%3D&data=mEMK-mNC5qY_Ni31pWMS4bgBHxGvStuj1RdrpC6Rzo4sK3-RZ5-JXTSX6v_P5TwLM4WwEBhKPRRBLhXCOMvr8g&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
+                </div>
+                
+                <div class="group-card">
+                    <div class="group-name">摸金分群</div>
+                    <span class="group-id">2160030736</span>
+                    <button class="copy-btn" data-id="2160030736">点击复制群号</button>
+                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=ReXvkzehiWmynMT8rO5V5Wbj66w%2BK%2FajXpwoiLgUhznbTjFRuOwDJJWf%2BUcWuGhc&busi_data=eyJncm91cENvZGUiOiIyMTYwMDMwNzM2IiwidG9rZW4iOiI0d3plMkdjQ1M1dUtaY2h3ZHQ1ZUpneE1QUkJBendPN3E1NXhGOWw0WnBXN3JZcDVTWmRnYTJmZnJ6VG9PU3FTIiwidWluIjoiMjA4NDQ1OTYwOCJ9&data=XUk2vu9JbiTAw-YyYLSJZTABS_vahJsP1BXZbskqhU2bYDS36m8lIcGo0O2xdq2zjYqLvTUBGGSlNRPU9gbtuw&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
+                </div>
+                
+                <div class="group-card">
+                    <div class="group-name">铁锈分群</div>
+                    <span class="group-id">469658756</span>
+                    <button class="copy-btn" data-id="469658756">点击复制群号</button>
+                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=PEgCTLeBKuoPUfsYGv4lNb3fCV31RbZc2xj9Nz4WwoY6aqCv4Nh7tjtll3dcuCpa&busi_data=eyJncm91cENvZGUiOiI0Njk2NTg3NTYiLCJ0b2tlbiI6InNlRzl4a1Y5QmRJNnAwRmRLZjliZm14U1pJOFpXV20yY3J4d09HUzcwSXBxYXNKN0xmOU9tcWhPVnlnaGlxWngiLCJ1aW4iOiIyMDg0NDU5NjA4In0%3D&data=BSHicfFU5zIg054zCq55aeIxqPFu8kT9Z7c-JbAabOV0jA7spS6zyG5UYxB_HeXuxRJ-m51iZfk5EZjIuIXCig&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
+                </div>
+                
+                <div class="group-card">
+                    <div class="group-name">妲妲群</div>
+                    <span class="group-id">521182519</span>
+                    <button class="copy-btn" data-id="521182519">点击复制群号</button>
+                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=6xJ298tYtEWbYGmUUFWnHI2kwl%2B%2ByOnwuBVnsSUEHNUaxwBR5CDuWtZtfErj3pUS&busi_data=eyJncm91cENvZGUiOiI1MjExODI1MTkiLCJ0b2tlbiI6Ind4bWxJQm9PeWNNY0tPNzIzakc0eDJZaHo0RlRXOXRTR2ZlRnBoSTNFWUdhTzhEaHVuZUFnMDRqUDNlZmhKYVUiLCJ1aW4iOiIyMDg0NDU5NjA4In0%3D&data=jxy1-MHH7lbbYw5ZIPPSkwbejLo6nfwDF2P2t798DqE6S10r-hsYXtAJ9P6dKK_5wW2EeYU83En-3cdEzA4Qvw&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
+                </div>
+                
+                <div class="group-card">
+                    <div class="group-name">我的世界分群</div>
+                    <span class="group-id">869764679</span>
+                    <button class="copy-btn" data-id="869764679">点击复制群号</button>
+                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=Tm7DuvHjtTrc4s6c9yYZBjQ4ngIXch83rBXO%2B0WF4VSZDo%2Bvf81OfSiHhxXQrogF&busi_data=eyJncm91cENvZGUiOiI4Njk3NjQ2NzkiLCJ0b2tlbiI6ImoxRWh0SFUrNWVaeEVUYzZKY1VQdnBHYmZzc0FsQ3lmK05NRjcvV0FCZUN5eWM0VmhEMDZ5ZWtBZDZiZmJ3N0kiLCJ1aW4iOiIyMDg0NDU5NjA4In0%3D&data=z5EN9WWf-FxBhIW1G1Tnh51jsR7tilolzHpdQtQ8PkfanAhylk0C6socOUEq9h5k8Xrg_NI6qODmDMa4nXe3lQ&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
+                </div>
+                
+                <div class="group-card">
+                    <div class="group-name">二次元群</div>
+                    <span class="group-id">975275791</span>
+                    <button class="copy-btn" data-id="975275791">点击复制群号</button>
+                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=yYUQirhNTYM6bRyAv43mSKHIkiNE2UF70SX1X%2BA%2FlOZChvw6sl4HQvDr%2FsXBuVOA&busi_data=eyJncm91cENvZGUiOiI5NzUyNzU3OTEiLCJ0b2tlbiI6IjArblZPQWM5bVg5TWYydzZla1pXdWNCMk03L1E5WEQyUm94dkhFNGdBbTByQUhJVUtXRXpxZFZnTjdFbEp5WVoiLCJ1aW4iOiIyMDg0NDU5NjA4In0%3D&data=a_on2X6vquTr15IwOchxLg4oCd-dUtPKwcnZYgfIJ6gg8KzT1h8fD-wpiSgcEPXMvlSBTDKeKwN3uGthcbRI0w&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
+                </div>
+                
+                <div class="group-card">
+                    <div class="group-name">战锤分群</div>
+                    <span class="group-id">202725518</span>
+                    <button class="copy-btn" data-id="202725518">点击复制群号</button>
+                    <!-- 战锤群不存在，没有加入按钮 -->
+                </div>
+            </div>
+            
+            <div class="description">
+                <h2>关于我们</h2>
+                <p><span class="highlight">本群性质：</span>跨游戏社群联盟，连接手游、端游、主机、单机等各类游戏群，打破单游社群的边界。</p>
+                <p><span class="highlight">本群宗旨：</span>让不同游戏的玩家"玩到一起、聊到一块"，通过联动活动放大社群乐趣，比如跨游组队、趣味PK、资源互通等。</p>
+                <p><span class="highlight">本群核心理念：</span>"无界联动，玩得尽兴"，拒绝复杂规则，主打轻松、平等的玩家互助氛围。</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>SHAER 2084459608</p>
+        </footer>
+    </div>
+
+    <script>
+        // 复制群号功能
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const groupId = this.getAttribute('data-id');
+                
+                // 使用现代Clipboard API复制文本
+                navigator.clipboard.writeText(groupId).then(() => {
+                    // 复制成功提示
+                    const originalText = this.textContent;
+                    this.textContent = '已复制!';
+                    
+                    // 2秒后恢复原状
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                    }, 2000);
+                }).catch(err => {
+                    // 备用方法，适用于某些浏览器
+                    const textArea = document.createElement('textarea');
+                    textArea.value = groupId;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    
+                    const originalText = this.textContent;
+                    this.textContent = '已复制!';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
