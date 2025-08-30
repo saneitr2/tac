@@ -13,7 +13,9 @@
         }
         
         body {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #ff6cb5 100%);
+            background: linear-gradient(-45deg, #4facfe, #00f2fe, #ff6cb5, #ff4b92);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -21,10 +23,22 @@
             padding: 20px;
         }
         
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.92);
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
             overflow: hidden;
@@ -35,17 +49,34 @@
             color: white;
             padding: 30px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%);
+            z-index: 1;
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
         }
         
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             opacity: 0.9;
+            position: relative;
+            z-index: 2;
         }
         
         .content {
@@ -57,6 +88,56 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
+        }
+        
+        .main-group {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .main-group::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%);
+            z-index: 1;
+        }
+        
+        .main-group:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+        
+        .main-group .group-name {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .main-group .group-id {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: block;
+            position: relative;
+            z-index: 2;
         }
         
         .group-card {
@@ -159,6 +240,14 @@
             .groups-container {
                 grid-template-columns: 1fr;
             }
+            
+            .main-group .group-name {
+                font-size: 1.5rem;
+            }
+            
+            .main-group .group-id {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
@@ -171,11 +260,13 @@
         
         <div class="content">
             <div class="groups-container">
-                <div class="group-card">
+                <div class="main-group">
                     <div class="group-name">TAC玩家联合总盟总部</div>
                     <span class="group-id">716813681</span>
-                    <button class="copy-btn" data-id="716813681">点击复制群号</button>
-                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=lqVuImDSgYdecw41FmHNEMqiaBGnaOEw0Ny96mhtBT7fB90MrMKuTHjr%2Ftr%2BUFQl&busi_data=eyJncm91cENvZGUiOiI3MTY4MTM2ODEiLCJ0b2tlbiI6ImdmaUdwTEdsWk1kc2Njbi9sbUZOQ2k5YmRQNXVrQjN1VlRVenpHYXJUVDF0cTROZHN5Zi9vKzBOcDlaLzE4SFMiLCJ1aW4iOiIxNDIzNTA4MTYzIn0%3D&data=jvL6_TCn-Aa3kGqO96Z1ArQFsMaFvMrBGP-tDA3SkvyPYyK2jwiDUIhnOPTcnX1VOJzjnwNj8VHmNSJljDFwyw&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
+                    <div>
+                        <button class="copy-btn" data-id="716813681">点击复制群号</button>
+                        <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=lqVuImDSgYdecw41FmHNEMqiaBGnaOEw0Ny96mhtBT7fB90MrMKuTHjr%2Ftr%2BUFQl&busi_data=eyJncm91cENvZGUiOiI3MTY4MTM2ODEiLCJ0b2tlbiI6ImdmaUdwTEdsWk1kc2Njbi9sbUZOQ2k5YmRQNXVrQjN1VlRVenpHYXJUVDF0cTROZHN5Zi9vKzBOcDlaLzE4SFMiLCJ1aW4iOiIxNDIzNTA4MTYzIn0%3D&data=jvL6_TCn-Aa3kGqO96Z1ArQFsMaFvMrBGP-tDA3SkvyPYyK2jwiDUIhnOPTcnX1VOJzjnwNj8VHmNSJljDFwyw&svctype=4&tempid=h5_group_info', '_blank')">点击加入总部</button>
+                    </div>
                 </div>
                 
                 <div class="group-card">
@@ -196,14 +287,14 @@
                     <div class="group-name">自由聊天室</div>
                     <span class="group-id">797264723</span>
                     <button class="copy-btn" data-id="797264723">点击复制群号</button>
-                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=uBYwU%2F7US5kA7I6gEpfXINrZlF1AKcK5BH4u1wWHg3Eut9gUlcdQR66WUfmVqSjz&busi_data=eyJncm91cENvZGUiOiI3OTcyNjQ3MjMiLCJ0b2tlbiI6Imp1bkJzUTJwcDlKZmExSXQ1VmxmM1lGMXMyODVuYTljSkxkbmU0NjJpaTJyTmFzeEpkMzAxeEhzd21HZVpBTmUiLCJ1aW4iOiIxNDIzNTA4MTYzIn0%3D&data=mEMK-mNC5qY_Ni31pWMS4bgBHxGvStuj1RdrpC6Rzo4sK3-RZ5-JXTSX6v_P5TwLM4WwEBhKPRRBLhXCOMvr8g&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
+                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=uBYwU%2F7US5kA7I6gEpfXINrZlF1AKcK5BH4u1wWHg3Eut9gUlcdQR66WUfmVqSjz&busi_data=eyJncm91cENvZGUiOiI3OTcyNjQ3MjMiLCJ0b2tlbiI6Imp1bkJzUTJwcDlKZmExSXQ1VmxfM1lGMXMyODVuYTljSkxkbmU0NjJpaTJyTmFzeEpkMzAxeEhzd21HZVpBTmUiLCJ1aW4iOiIxNDIzNTA4MTYzIn0%3D&data=mEMK-mNC5qY_Ni31pWMS4bgBHxGvStuj1RdrpC6Rzo4sK3-RZ5-JXTSX6v_P5TwLM4WwEBhKPRRBLhXCOMvr8g&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
                 </div>
                 
                 <div class="group-card">
                     <div class="group-name">摸金分群</div>
                     <span class="group-id">2160030736</span>
                     <button class="copy-btn" data-id="2160030736">点击复制群号</button>
-                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=ReXvkzehiWmynMT8rO5V5Wbj66w%2BK%2FajXpwoiLgUhznbTjFRuOwDJJWf%2BUcWuGhc&busi_data=eyJncm91cENvZGUiOiIyMTYwMDMwNzM2IiwidG9rZW4iOiI0d3plMkdjQ1M1dUtaY2h3ZHQ1ZUpneE1QUkJBendPN3E1NXhGOWw0WnBXN3JZcDVTWmRnYTJmZnJ6VG9PU3FTIiwidWluIjoiMjA4NDQ1OTYwOCJ9&data=XUk2vu9JbiTAw-YyYLSJZTABS_vahJsP1BXZbskqhU2bYDS36m8lIcGo0O2xdq2zjYqLvTUBGGSlNRPU9gbtuw&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
+                    <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=ReXvkzehiWmynMT8rO5V5Wbj66w%2BK%2FajXpwoiLgUhznbTjFRuOwDJJWf%2BUcWuGhc&busi_data=eyJncm91cENvZGUiOiIyMTYwMDMwNzM2IiwidG9rZW4iOiI0d3plMkdjQ1M1dUtaY2h3ZHQ1ZUpneE1QUkJBendPN3E1NXhFOWw0WnBXN3JZcDVTWmRnYTJmZnJ6VG9PU3FTIiwidWluIjoiMjA4NDQ1OTYwOCJ9&data=XUk2vu9JbiTAw-YyYLSJZTABS_vahJsP1BXZbskqhU2bYDS36m8lIcGo0O2xdq2zjYqLvTUBGGSlNRPU9gbtuw&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
                 </div>
                 
                 <div class="group-card">
@@ -214,7 +305,7 @@
                 </div>
                 
                 <div class="group-card">
-                    <div class="group-name">炟炟群</div>
+                    <div class="group-name">妲妲群</div>
                     <span class="group-id">521182519</span>
                     <button class="copy-btn" data-id="521182519">点击复制群号</button>
                     <button class="join-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=6xJ298tYtEWbYGmUUFWnHI2kwl%2B%2ByOnwuBVnsSUEHNUaxwBR5CDuWtZtfErj3pUS&busi_data=eyJncm91cENvZGUiOiI1MjExODI1MTkiLCJ0b2tlbiI6Ind4bWxJQm9PeWNNY0tPNzIzakc0eDJZaHo0RlRXOXRTR2ZlRnBoSTNFWUdhTzhEaHVuZUFnMDRqUDNlZmhKYVUiLCJ1aW4iOiIyMDg0NDU5NjA4In0%3D&data=jxy1-MHH7lbbYw5ZIPPSkwbejLo6nfwDF2P2t798DqE6S10r-hsYXtAJ9P6dKK_5wW2EeYU83En-3cdEzA4Qvw&svctype=4&tempid=h5_group_info', '_blank')">点击加入</button>
